@@ -1,0 +1,23 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class week1 {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		ChromeDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://duckduckgo.com/");
+		driver.findElement(By.name("q")).sendKeys("myntra \n");
+		driver.findElement (By.xpath("//span[@class='EKtkFWMYpwzMKOYr0GYm LQVY1Jpkk8nyJ6HBWKAk']")).click();
+		driver.findElement (By.xpath("//span[@class= 'desktop-userTitle']")).click();
+		driver.findElement(By.xpath("//a[@class='desktop-linkButton']")).click();
+		driver.findElement(By.xpath("//input[@class='form-control mobileNumberInput']")).sendKeys("1234567890");
+		driver.findElement(By.xpath ("//input[@class='consentCheckbox']")).click();
+		driver.findElement(By.xpath("//div[@class='submitBottomOption']")).click();
+		Thread.sleep (30000);
+		driver.findElement(By.xpath("//div[@class='submitBottomOption']")).click();
+
+		}
+
+}
