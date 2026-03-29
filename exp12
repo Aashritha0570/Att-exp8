@@ -1,0 +1,50 @@
+package ATTLab;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+
+public class week12 {
+    public static void main(String[] args) throws Exception {
+        ChromeDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://duckduckgo.com/");
+
+        driver.findElement(By.name("q")).sendKeys("word to pdf converter\n");
+        Thread.sleep(1500);
+
+        driver.findElement(By.xpath("//span[text()='Convert Word to PDF. Documents DOC to PDF - iLovePDF']")).click();
+        Thread.sleep(1500);
+
+        driver.findElement(By.xpath("//a[@id='pickfiles']")).click();
+        Thread.sleep(1500);
+
+        String filePath = "C:\\Users\\Wel\\OneDrive\\Documents\\AD_MP[1].docx";
+        uploadFileWithRobot(filePath);
+        Thread.sleep(3000);
+
+        driver.findElement(By.id("processTask")).click();
+        Thread.sleep(3000);
+
+        System.out.println("Word file successfully converted to PDF!");
+        
+    }
+
+    public static void uploadFileWithRobot(String filePath) throws Exception {
+        Robot robot = new Robot();
+        robot.setAutoDelay(1000);
+
+        StringSelection selection = new StringSelection(filePath);
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, null);
+
+        robot.keyPress(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_CONTROL);
+
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
+    }
+}
