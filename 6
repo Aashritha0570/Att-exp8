@@ -1,0 +1,19 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class week6 {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		ChromeDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://duckduckgo.com/");
+		driver.findElement(By.name("q")).sendKeys("ajio \n");
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//span[@class='EKtkFWMYpwzMKOYr0GYm LQVY1Jpkk8nyJ6HBWKAk'])[1]")).click();
+		driver.findElement(By.xpath("//input[@name='searchVal']")).sendKeys("watches \n");
+		Thread.sleep(1000);
+		driver.quit();
+	}
+
+}
