@@ -1,0 +1,24 @@
+import java.util.List;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class week9 {
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		ChromeDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://duckduckgo.com/");
+		driver.findElement(By.name("q")).sendKeys("flipkart \n");
+		driver.findElement(By.xpath("//span[text()='Flipkart']")).click();
+		
+		Thread.sleep(1000);
+		driver.findElement (By.xpath("//input[@name='q']")).sendKeys("laptops \n");
+		List<WebElement> m = driver.findElements(By.xpath("//div[@class='RG5Slk']"));
+		for(int i = 0; i< m.size(); i++) {
+			String s = m.get(i).getText();
+			System.out.println("list is: " + s);
+			}
+
+}
+}
