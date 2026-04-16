@@ -1,0 +1,53 @@
+import org.openqa.selenium.By;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class week10 {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		      ChromeDriver driver = new ChromeDriver(); 
+		      driver.manage().window().maximize();
+			  driver.get("http://gmail.com/"); 
+			  Thread.sleep(2000); 
+			   driver.findElement(By.xpath("(//span[normalize-space()='Create account'])")).click(); 
+			  Thread.sleep(2000); 
+			  driver.findElement(By.xpath("(//span[normalize-space()='For my personal use'])")).click();
+			  Thread.sleep(2000); 
+			  driver.findElement(By.name("firstName")).sendKeys("Amanaganti"); 
+			  Thread.sleep(2000); 
+			  driver.findElement(By.name("lastName")).sendKeys("Aashritha"); 
+			  Thread.sleep(2000); 
+			  driver.findElement(By.xpath("(//span[normalize-space()='Next'])")).click(); 
+			  Thread.sleep(2000); 
+			  driver.findElement(By.xpath("//div[normalize-space()='Month']")).click();
+			  Thread.sleep(2000);
+			  driver.findElement(By.xpath("//li[normalize-space()='October']")).click();
+			  Thread.sleep(2000);
+			  driver.findElement(By.id("day")).sendKeys("3"); ; 
+			  Thread.sleep(2000); 
+			  driver.findElement(By.id("year")).sendKeys("2006"); 
+			  driver.findElement(By.xpath("//div[normalize-space()='Gender']")).click();;
+			 
+			  Thread.sleep(2000);
+			  driver.findElement(By.xpath("//li[normalize-space()='Female']")).click();
+			
+			  Thread.sleep(2000);
+			  driver.findElement(By.xpath("(//span[normalize-space()='Next'])")).click(); 
+			  Thread.sleep(2000); 
+			  driver.findElement(By.name("usernameRadio")).click(); 
+			  //sendKeys("swathipreethi202013"); 
+			  driver.findElement(By.xpath("(//span[normalize-space()='Next'])")).click(); 
+			  
+			  Thread.sleep(2000); 
+			  driver.findElement(By.name("Passwd")).sendKeys("Aashritha@03"); 
+			   
+			  Thread.sleep(2000); 
+			  driver.findElement(By.name("PasswdAgain")).sendKeys("Aashritha@03"); 
+			  
+			  Thread.sleep(2000); 
+			  driver.findElement(By.xpath("(//span[normalize-space()='Next'])")).click(); 
+			 
+	}
+
+}
